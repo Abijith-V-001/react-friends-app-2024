@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 
 const ViewFriends = () => {
+    const [friend,changeFriend]=useState(
+        [{
+            "name": "",
+            "friendName": "",
+            "friendNickName":"",
+            "DescribeYourFriend":""
+            }]
+    )
+
     return (
         <div>
             <Navbar/>
@@ -13,18 +22,25 @@ const ViewFriends = () => {
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Friend name</th>
+                                    <th scope="col">Friend nick name</th>
+                                    <th scope="col">Description</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
+                                {
+                                friend.map(
+                                    (value,index)=>{
+                                        return <tr>
+                                    
+                                        <td>{value.name}</td>
+                                        <td>{value.friendName}</td>
+                                        <td>{value.friendNickName}</td>
+                                        <td>{value.DescribeYourFriend}</td>
+                                    </tr>
+                                    }
+                                )}
                                 
                             </tbody>
                         </table>
